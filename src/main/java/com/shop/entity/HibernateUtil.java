@@ -11,7 +11,7 @@ public class HibernateUtil {
 			// Create the SessionFactory from hibernate.cfg.xml
 			Configuration configuration = new Configuration();          
 			sessionFactory = configuration.configure("hibernate.cfg.xml")
-					.addAnnotatedClass(Item.class)
+					.addAnnotatedClass(Product.class)
 					.addAnnotatedClass(User.class)
 					.buildSessionFactory();
 		} catch (Throwable ex) {

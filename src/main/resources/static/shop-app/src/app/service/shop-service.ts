@@ -25,7 +25,7 @@ export class Product {
 export class ShopService {
 
   private products: Product[];
-  private getUrl = 'https://private-16d7d-closebites.apiary-mock.com/todos';
+  private getUrl = 'localhost8080/shop/items';
   private getUrl2 = 'https://private-16d7d-closebites.apiary-mock.com/product';
   constructor(
     //private _router: Router,
@@ -41,7 +41,7 @@ export class ShopService {
   }
   //https://scotch.io/tutorials/angular-2-http-requests-with-observables
   getItems1(): Observable<Product[]> {
-    return this.http.get(this.getUrl2)
+    return this.http.get(this.getUrl)
                     .map((res:Response) => res.json())
                     //.catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
