@@ -1,6 +1,7 @@
 package com.shop.dao;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -19,7 +20,16 @@ public class ProductDAO {
 		Iterator<Product> iter = q.getResultList().iterator();
 		while(iter.hasNext()) {
 			result.add(iter.next());
-		}		
+		}
+		
+//		System.out.println("PRINTING RESULTS FROM DB");
+//		String[] test = (String[]) result.toArray();
+//		for(int i = 0; i < result.toArray().length; i++) {
+//			System.out.print(test[i]);
+//		}
+		
+		
+		
 		session.getTransaction().commit();
 		return result;
 	}

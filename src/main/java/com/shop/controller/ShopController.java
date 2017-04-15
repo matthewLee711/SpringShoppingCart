@@ -2,8 +2,11 @@ package com.shop.controller;
 
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -14,9 +17,10 @@ import com.shop.entity.Product;
 @RestController
 @RequestMapping("/shop")
 public class ShopController {
+	
 	@CrossOrigin(allowedHeaders="*",allowCredentials="false")
 	@RequestMapping(value="/items", method= RequestMethod.GET)
-	public String getProducts() {
+	public @ResponseBody String getProducts() {
 		ProductDAO getProducts = new ProductDAO();
 		ObjectMapper mapper = new ObjectMapper();
 		String listToJson = null;
@@ -26,12 +30,16 @@ public class ShopController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.print("PRINT RSULTS BF SEND");
+		System.out.print(listToJson);
 		return listToJson;
 	}
 	
 	@CrossOrigin(allowedHeaders="*",allowCredentials="false")
 	@RequestMapping(value="/purchase", method= RequestMethod.POST)
-	public String purchaseItem() {
+	public @ResponseBody String purchaseItem(@RequestBody String name) {
+		System.out.println("Recieved it");
+		System.out.print(name);
 		
 		return null;
 	}

@@ -1,3 +1,7 @@
-<p>
-  product works!
-</p>
+<div>
+  <div>{{data.name}}</div>
+  <div>{{data.description}}</div>
+  <div>{{data.price}}</div>
+  <div>{{data.stock}}</div>
+  <button class="btn btn-success" (click)="purchaseItem(data.name)">Purchase</button>
+</div>
