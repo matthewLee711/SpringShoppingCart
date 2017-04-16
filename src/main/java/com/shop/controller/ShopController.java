@@ -35,6 +35,7 @@ public class ShopController {
 		return listToJson;
 	}
 	
+	
 	@CrossOrigin(allowedHeaders="*",allowCredentials="false")
 	@RequestMapping(value="/purchase", method= RequestMethod.POST)
 	public @ResponseBody String purchaseItem(@RequestBody String name) {

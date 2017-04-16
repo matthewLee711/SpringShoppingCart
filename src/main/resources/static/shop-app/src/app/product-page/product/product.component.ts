@@ -18,8 +18,8 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
   }
 
-  purchaseItem(name: string) {
-    this.shopService.purchaseItem(name)
+  purchaseItem(itemname: string) {
+    this.shopService.purchaseItem(itemname)
                     .subscribe(data => {
                       console.log(data);
                     }, error => {

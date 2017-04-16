@@ -21,24 +21,25 @@ public class ProductDAO {
 		while(iter.hasNext()) {
 			result.add(iter.next());
 		}
-		
-//		System.out.println("PRINTING RESULTS FROM DB");
-//		String[] test = (String[]) result.toArray();
-//		for(int i = 0; i < result.toArray().length; i++) {
-//			System.out.print(test[i]);
-//		}
-		
-		
-		
 		session.getTransaction().commit();
 		return result;
+	}
+	
+	public void addToCart(Product item) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		//pass item name, add product to cart
+		//set stock to 1
+		//pass in user name too
+		
+		session.getTransaction().commit();
 	}
 	
 	public void purchaseProduct(Product purchase) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
-		
+		//When item is purchased, remove from shopping cart table
 		
 		session.getTransaction().commit();
 	}

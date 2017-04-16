@@ -8,17 +8,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="UserTable")
+@Table(name="user_table")
 public class User {
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="UserID")
-	private Integer userID;
+	@Column(name="user_id")
+	public Integer user_id;
 	
-	@Column(name="Username")
-	private String username;
+	@Column(name="name")
+	public String username;
 	
-	@Column(name="Password")
-	private String password;
+	@Column(name="name")
+	public String password;
+	
+	@Column(name="name")
+	public Integer user_type_fk;
 	
 }
