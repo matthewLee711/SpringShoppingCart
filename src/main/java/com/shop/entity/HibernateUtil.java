@@ -13,6 +13,7 @@ public class HibernateUtil {
 			sessionFactory = configuration.configure("hibernate.cfg.xml")
 					.addAnnotatedClass(Product.class)
 					.addAnnotatedClass(User.class)
+					.addAnnotatedClass(Cart.class)
 					.buildSessionFactory();
 		} catch (Throwable ex) {
 			// Make sure you log the exception, as it might be swallowed

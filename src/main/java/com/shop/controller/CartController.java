@@ -36,21 +36,22 @@ public class CartController {
 	@CrossOrigin(allowedHeaders="*",allowCredentials="false")
 	@RequestMapping(value="/addToCart", method= RequestMethod.POST)
 	public @ResponseBody String addToCart(@RequestBody String data) {
-		System.out.println("Recieved it");
+		System.out.println("==========Adding to cart============");
 		System.out.print(data);
-		JSONObject obj;
-		String user = null;
-		String item = null;
-		try {
-			obj = new JSONObject(data);
-			user = obj.getString("name");
-			item = obj.getString("item_name");
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.print(user);
-		System.out.println(item);
+		
+//		JSONObject obj;
+//		String user = null;
+//		String item = null;
+//		try {
+//			obj = new JSONObject(data);
+//			user = obj.getString("user");
+//			item = obj.getString("item_name");
+//		} catch (JSONException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		System.out.print(user);
+//		System.out.println(item);
 		//Create service which will abstract insertion
 		CartDAO addCartItem = new CartDAO();
 		addCartItem.addNewItemToCart("user", "hammer");

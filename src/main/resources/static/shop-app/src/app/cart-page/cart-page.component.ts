@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartListComponent } from './cart-list/cart-list.component';
 
 @Component({
   selector: 'app-cart-page',

@@ -9,10 +9,10 @@ import { routes } from './app.routes';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { ProductListComponent } from './product-page/product-list/product-list.component';
 import { ProductComponent } from './product-page/product/product.component';
-import { CartComponent } from './cart/cart.component';
-import { CartListComponent } from './cart/cart-list/cart-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
+import { CartListComponent } from './cart-page/cart-list/cart-list.component';
+import { CartComponent } from './cart-page/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +20,10 @@ import { CartPageComponent } from './cart-page/cart-page.component';
     ProductPageComponent,
     ProductListComponent,
     ProductComponent,
-    CartComponent,
-    CartListComponent,
     NavbarComponent,
-    CartPageComponent
+    CartPageComponent,
+    CartListComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

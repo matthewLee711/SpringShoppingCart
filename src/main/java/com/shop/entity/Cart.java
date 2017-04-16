@@ -5,7 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,24 +15,26 @@ import javax.persistence.Table;
 public class Cart {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="user_id")
+	@Column(name="cart_id")
 	public Integer cart_id;
 	
 	@ManyToOne
-	@Column(name="name")
+	@JoinColumn(name="item_fk")
 	public Product item_fk;
 	
 	@Column(name="number_to_purchase")
 	public Integer numToPurchase;
 	
 	@ManyToOne
-	@Column(name="buyer_fk")
+	@JoinColumn(name="buyer_fk")
 	public User buyer_fk;
 	
-	public void cartItemInsertion(User user, Product product) {
-		this.buyer_fk = user;
+	public void cartItemInsertion(User buyer, Product product) {
+		this.buyer_fk = buyer;
 		this.item_fk = product;
 		this.numToPurchase = 1;
 	}
+	
+	public Cart() { }
 	
 }

@@ -30,18 +30,8 @@ public class ShopController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.print("PRINT RSULTS BF SEND");
-		System.out.print(listToJson);
+		//System.out.print("PRINT RSULTS BF SEND");
+		//System.out.print(listToJson);
 		return listToJson;
-	}
-	
-	
-	@CrossOrigin(allowedHeaders="*",allowCredentials="false")
-	@RequestMapping(value="/purchase", method= RequestMethod.POST)
-	public @ResponseBody String purchaseItem(@RequestBody String name) {
-		System.out.println("Recieved it");
-		System.out.print(name);
-		
-		return null;
 	}
 }

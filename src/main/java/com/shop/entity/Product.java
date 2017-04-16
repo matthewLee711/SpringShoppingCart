@@ -26,6 +26,8 @@ public class Product {
 	
 	@Column(name="stock")
 	public Integer stock;
+	
+	public Product() { }
 }
 
 //@Entity

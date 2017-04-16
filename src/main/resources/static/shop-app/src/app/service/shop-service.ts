@@ -26,7 +26,7 @@ export class ShopService {
 
   private products: Product[];
   private getUrl = 'http://localhost:8080/shop/items';
-  private postUrl = 'http://localhost:8080/shop/purchase';
+  private postUrl = 'http://localhost:8080/cart/addToCart';
   private getUrl2 = 'https://private-16d7d-closebites.apiary-mock.com/product';
   constructor(
     //private _router: Router,
