@@ -1,20 +1,11 @@
-<!-- <div>
-  <div>{{data.name}}</div>
-  <div>{{data.description}}</div>
-  <div>${{data.price}}.00</div>
-  <div>In stock: {{data.stock}}</div>
-  <button class="btn btn-success" (click)="purchaseItem(data.name)">Purchase</button>
-</div> -->
-<div>
-  <div class="panel panel-default">
-    <div class="panel-heading">{{data.name}}</div>
-    <div class="panel-body">
-      <div>{{data.description}}</div>
-      <div>${{data.price}}.00</div>
-      <div>In stock: {{data.stock}}</div>
-    </div>
-    <div class="panel-footer">
-      <button class="btn btn-success" (click)="purchaseItem(data.name)">Add to Cart</button>
-    </div>
+<div class="panel panel-default">
+  <div class="panel-heading">{{data.name}}</div>
+  <div class="panel-body">
+    <div>{{data.description}}</div>
+    <div>${{data.price}}.00</div>
+    <div>In stock: {{data.stock}}</div>
   </div>
-<div>
+  <div class="panel-footer">
+    <button class="btn btn-success" (click)="purchaseItem(data.name)">Add to Cart</button>
+  </div>
+</div>
