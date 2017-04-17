@@ -12,6 +12,7 @@ import { Product } from '../../model/product';
 export class CartListComponent implements OnInit {
   public cartArr: Product[];
   public product: Product;
+  public total: number;
 
   constructor(
     private cartService: CartService
@@ -26,13 +27,11 @@ export class CartListComponent implements OnInit {
   loadCart() {
     this.cartService.getCart('user')
                     .subscribe(data => {
-                      console.log('cart', data);
-                      console.log('cart', data[0]);
-                      console.log('cart', data[0].item_fk);
-                      console.log('cart', data[0].item_fk.name);
+                      this.total = 0;
                       for(var i = 0; i < data.length; i++) {
                         this.product = new Product(data[i].item_fk.name, data[i].item_fk.description, data[i].item_fk.price, data[i].numToPurchase);
-                        this.cartArr.unshift(this.product)
+                        this.cartArr.unshift(this.product);
+                        this.total += (data[i].item_fk.price * data[i].numToPurchase);
                       }
                     }, error => {
                       console.log(error);

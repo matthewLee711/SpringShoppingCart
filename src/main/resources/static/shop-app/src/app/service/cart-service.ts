@@ -44,15 +44,12 @@ export class CartService {
     });
     let userloc: URLSearchParams = new URLSearchParams();
     userloc.set('user', username);
-    // let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
-    // let options = new RequestOptions({ headers: headers }); // Create a request option
     return this.http.get(this.getUrl, {search: userloc}) // ...using post request
                      .map((res:Response) => res.json())
   }
 
   deleteCartItem(item: string) {
     let options2 = new RequestOptions({
-        // Have to make a URLSearchParams with a query string
         search: new URLSearchParams(item) // <-----
     });
     let userloc: URLSearchParams = new URLSearchParams();

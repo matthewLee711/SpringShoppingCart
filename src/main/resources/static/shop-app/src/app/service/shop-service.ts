@@ -48,8 +48,6 @@ export class ShopService {
   }
 
   purchaseItem(name: string) {
-    // let data: URLSearchParams = new URLSearchParams();
-    // data.set('name', body);{'user':'user'}
     let data = {'user':'user', 'item_name':name}
     let body = JSON.stringify(data);
     let headers = new Headers({ 'Content-Type': 'application/json' });
