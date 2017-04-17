@@ -49,14 +49,12 @@ export class ShopService {
 
   purchaseItem(name: string) {
     // let data: URLSearchParams = new URLSearchParams();
-    // data.set('name', body);
-    let data = {'user':'user', 'item_name': name};
+    // data.set('name', body);{'user':'user'}
+    let data = {'user':'user', 'item_name':name}
     let body = JSON.stringify(data);
-    let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
-    let options = new RequestOptions({ headers: headers }); // Create a request option
-    return this.http.post(this.postUrl, name, options) // ...using post request
-                     .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
-                     //.catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(this.postUrl, body, options) // ...using post request
   }
 
 }

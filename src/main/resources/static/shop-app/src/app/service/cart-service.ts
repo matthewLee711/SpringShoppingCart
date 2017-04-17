@@ -24,7 +24,8 @@ export class Product {
 @Injectable()
 export class CartService {
 
-  private postUrl = 'http://localhost:8080/cart/getCart';
+  private getUrl = 'http://localhost:8080/cart/getCart';
+  private deleteUrl = 'http://localhost:8080/cart/deleteCartItem';
 
   constructor(
     //private _router: Router,
@@ -37,10 +38,28 @@ export class CartService {
   getCart(username: string) {
     let data = {'user': username};
     let body = JSON.stringify(data);
-    let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
-    let options = new RequestOptions({ headers: headers }); // Create a request option
-    return this.http.post(this.postUrl, name, options) // ...using post request
+    let options = new RequestOptions({
+        // Have to make a URLSearchParams with a query string
+        search: new URLSearchParams() // <-----
+    });
+    let userloc: URLSearchParams = new URLSearchParams();
+    userloc.set('user', username);
+    // let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+    // let options = new RequestOptions({ headers: headers }); // Create a request option
+    return this.http.get(this.getUrl, {search: userloc}) // ...using post request
                      .map((res:Response) => res.json())
+  }
+
+  deleteCartItem(item: string) {
+    let options2 = new RequestOptions({
+        // Have to make a URLSearchParams with a query string
+        search: new URLSearchParams(item) // <-----
+    });
+    let userloc: URLSearchParams = new URLSearchParams();
+    userloc.set('item', item);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.delete(this.deleteUrl, {search: userloc})
   }
 
 

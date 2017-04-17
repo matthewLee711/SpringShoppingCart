@@ -20,13 +20,18 @@ export class CartListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadCart();
   }
 
   loadCart() {
     this.cartService.getCart('user')
                     .subscribe(data => {
+                      console.log('cart', data);
+                      console.log('cart', data[0]);
+                      console.log('cart', data[0].item_fk);
+                      console.log('cart', data[0].item_fk.name);
                       for(var i = 0; i < data.length; i++) {
-                        this.product = new Product(data[i].name, data[i].description, data[i].price, data[i].stock);
+                        this.product = new Product(data[i].item_fk.name, data[i].item_fk.description, data[i].item_fk.price, data[i].numToPurchase);
                         this.cartArr.unshift(this.product)
                       }
                     }, error => {
